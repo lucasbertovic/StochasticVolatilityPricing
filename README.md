@@ -37,14 +37,12 @@ These SDEs govern the evolution of the asset price and its volatility over time.
 To use the Heston model for option pricing, we need to discretise the SDEs in a way that makes them amenable to numerical simulation. The discretisation can be done using the Euler-Maruyama method, which approximates the continuous SDEs using time steps of size $\Delta t$. The discretised versions of the equations are as follows:
 
 For the asset price $S_t$:
-$$
-S_{t+1} = S_t \cdot \exp\left( \left( \mu - \frac{1}{2} v_t \right) \Delta t + \sqrt{v_t} \cdot \epsilon_1 \sqrt{\Delta t} \right)
-$$
+
+$$ S_{t+1} = S_t \cdot \exp\left( \left( \mu - \frac{1}{2} v_t \right) \Delta t + \sqrt{v_t} \cdot \epsilon_1 \sqrt{\Delta t} \right) $$
 
 For the variance process $v_t$:
-$$
-v_{t+1} = \max\left( v_t + \kappa (\theta - v_t) \Delta t + \sigma \sqrt{v_t} \cdot \epsilon_2 \sqrt{\Delta t}, 0 \right)
-$$
+
+$$  v_{t+1} = \max\left( v_t + \kappa (\theta - v_t) \Delta t + \sigma \sqrt{v_t} \cdot \epsilon_2 \sqrt{\Delta t}, 0 \right)  $$
 
 where $\epsilon_1$ and $\epsilon_2$ are standard normal random variables that are correlated with correlation $\rho$, and $\max(\cdot, 0)$ ensures that the variance $v_t$ does not become negative.
 
